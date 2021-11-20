@@ -10,7 +10,9 @@ class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   execute({ email, name }: IRequest): User {
-    return this.usersRepository.create({ email, name });
+    const user = this.usersRepository.create({ email, name });
+
+    return user;
   }
 }
 
