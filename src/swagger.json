@@ -1,0 +1,9 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Challenge 5 - Documenting with Swagger",
+    "description": "Exercise to create an API documentation with Swagger",
+    "version": "1.0.0",
+    "contact": "natan.chikaoka@gmail.com"
+  }
+}
