@@ -213,7 +213,67 @@
               }
             }
           },
-          "400": {
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "User not found!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{user_id}/admin": {
+      "patch": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Turns a user into admin",
+        "description": "Gives admin rights to a user given its `id`",
+        "parameters": [
+          {
+            "name": "user_id",
+            "description": "user id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "user's id (uuid)"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user"
+                },
+                "example": {
+                  "id": "03d00a6f-22c4-4f0f-b719-524d653b1916",
+                  "admin": true,
+                  "name": "Mary Doe",
+                  "email": "mary.doe@email.com",
+                  "created_at": "2021-11-23T01:32:27.067Z",
+                  "updated_at": "2021-11-23T01:32:27.067Z"
+                }
+              }
+            }
+          },
+          "404": {
             "description": "User not found",
             "content": {
               "application/json": {
